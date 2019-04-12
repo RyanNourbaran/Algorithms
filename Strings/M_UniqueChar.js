@@ -5,10 +5,11 @@ function kUnique(s, k) {
   let ans = "",
     map = {};
 
-  while (i <= s.length) {
-    console.log(j, i, ans);
-    console.log("\n");
+  let m = new Map();
+  m.set({ hello: "world" }, "object");
+  console.log(m);
 
+  while (i <= s.length) {
     let f = s.slice(j, j + 1),
       e = s.slice(i, i + 1);
     if (map[e]) {
@@ -25,7 +26,6 @@ function kUnique(s, k) {
 
       map[f] = false;
     }
-    console.log(map);
 
     // console.log(`${i}th char: ${e}, ${j}th char: ${f}, ans: ${ans}`);
     // console.log(map);
