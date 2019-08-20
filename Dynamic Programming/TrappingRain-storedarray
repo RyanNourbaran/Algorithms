@@ -1,0 +1,23 @@
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var trap = function(height) {
+    let n = height.length
+    let maxRight = [];
+    maxRight[n-1] = height[n-1];
+    let maxLeft = [0];
+    let water = 0;
+    for (let i=0; i<n; i++) {
+        let j = n-1-i;
+        maxLeft[i] = Math.max(height[i], (maxLeft[i-1] || 0));
+        maxRight[j] = Math.max(height[j], (maxRight[j+1] || 0));
+        
+    }
+    console.log(maxLeft,maxRight);
+    
+    for (let i=0; i<n; i++) {
+        water += Math.min(maxLeft[i], maxRight[i]) - height[i];
+    }
+    return water;
+};
